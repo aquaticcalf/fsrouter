@@ -27,15 +27,7 @@ api/
 2. In your main.go, add:
 
 ```go
-//go:generate fsrouter \
-//    -api=./api \
-//    -out=routes_gen.go \
-//    -pkg=main \
-//    -importPREFIX=yourmodule/api \
-//    -middleware=yourmodule/middleware \
-//    -middlewares="loggingMiddleware,authMiddleware,corsMiddleware" \
-//    -groupMiddlewares='{"users":"authMiddleware","admin":"adminAuthMiddleware,loggingMiddleware"}' \
-//    -notFound=customHandlers.NotFound
+//go:generate fsrouter -api=./api -out=routes_gen.go -pkg=main -importPREFIX=yourmodule/api -middleware=yourmodule/middleware -middlewares="loggingMiddleware,authMiddleware,corsMiddleware" -groupMiddlewares='{"users":"authMiddleware","admin":"adminAuthMiddleware,loggingMiddleware"}' -notFound=customHandlers.NotFound
 
 package main
 

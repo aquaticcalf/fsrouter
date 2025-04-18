@@ -61,6 +61,10 @@ func main() {
 			group = segments[0]
 			routeGroups[group] = true
 		}
+		if group == "" {
+			group = "root"
+			routeGroups[group] = true
+		}
 
 		var parts []string
 		for _, seg := range segments {
@@ -158,7 +162,7 @@ func loggingMiddleware(next http.Handler) http.Handler {
 func defaultNotFoundHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusNotFound)
-	w.Write([]byte("{"error": "404 not found", "path": "" + r.URL.Path + ""}"))
+	w.Write([]byte(`{"error": "404 not found", "path": "` + r.URL.Path + `"}`))
 }
 {{end}}
 `))
