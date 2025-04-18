@@ -8,7 +8,7 @@ A Go code generator that mirrors your `api/` filesystem into HTTP routes using [
 ## Installation
 
 ```bash
-go install github.com/aquaticalf/fsrouter
+go install github.com/aquaticcalf/fsrouter@latest
 ```
 
 ## Usage
